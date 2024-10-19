@@ -1,0 +1,96 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.enlaces {
+    width: 100%;
+    height: 4rem;
+    margin: 1rem 0 0 0;
+    @include m.start-end;
+
+    .contenedor_enlaces {
+        border-radius: 10px;
+        width: 20%;
+        height: 100%;
+        padding: 5px;
+        @include m.space;
+        
+        @include m.tablet{
+            gap: 10px;
+        }
+        @include m.movil{
+            gap: 10px;
+        }
+        
+        a {
+            &:hover {
+                animation: icono 0.9s;
+            }
+        }
+    }
+
+}
+
+
+.enlaces2 {
+    width: 100%;
+    height: 10rem;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+}
+
+.contenedor_enlaces2 {
+    width: 10%;
+    padding: 10px;
+    background: radial-gradient(at left top, #00000025, #0f1d1dc5, #024963, #012937da);
+    border: 2px double rgba(128, 128, 128, 0.353);
+    border-radius: 20px;
+    @include m.space;
+    
+    @include m.tablet{
+        width: 20%;
+    }
+    @include m.tablet-max{ 
+        width: 25%;
+    } 
+    @include m.telefono-max{
+       @include m.enlace;
+    }
+    @include m.desktop{
+        width: 10%;
+    }
+
+    .icono {
+        &:hover {
+            animation: icono 0.9s linear both;
+        }
+    }
+}
+
+
+@keyframes icono {
+    0% {
+        transform: translate(0)
+    }
+
+    20% {
+        transform: translate(-2px, 2px)
+    }
+
+    40% {
+        transform: translate(-2px, -2px)
+    }
+
+    60% {
+        transform: translate(2px, 2px)
+    }
+
+    80% {
+        transform: translate(2px, -2px)
+    }
+
+    100% {
+        transform: translate(0)
+    }
+}

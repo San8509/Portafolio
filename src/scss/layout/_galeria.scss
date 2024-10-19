@@ -1,0 +1,122 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.galeria {
+    text-align: center;
+    color: v.$blanco;
+    @include m.contenedor;
+
+    .galeria-imagenes {
+        padding: 10px;
+        box-shadow: 0px 0px 5px 4px rgba(112, 112, 176, 0.48);
+        -webkit-box-shadow: 0px 0px 5px 4px rgba(112, 112, 176, 0.48);
+        -moz-box-shadow: 0px 0px 5px 4px rgba(112, 112, 176, 0.48);
+    }
+
+    &-imagenes {
+        @include m.grid(1, 2rem);
+
+        @include m.telefono {
+            @include m.grid(2, 2rem);
+        }
+
+        @include m.tablet {
+            @include m.grid(3, 2rem);
+        }
+
+        img {
+            height: 20rem;
+            object-fit: cover;
+
+            &:hover {
+                animation: icono-img 2s ease;
+            }
+        }
+    }
+
+    .proyectos {
+        display: inline-block;
+        font-size: 2.5rem;
+        font-weight: 200;
+        color: v.$blanco;
+        margin-bottom: 30px;
+
+        &:hover {
+            color: v.$rosa;
+        }
+
+        svg {
+            margin-bottom: -6px;
+        }
+    }
+}
+
+.modal {
+    @include m.modal;
+
+    &.fade-out {
+        animation: fadeOut ease-in 0.5s;
+    }
+    img {
+        max-width: 100rem;
+    }
+}
+
+.tooltip{
+    position: absolute;
+    margin: 5px 0 5px 0;
+    color: rgb(255, 255, 255);
+    background-color: rgba(8, 4, 239, 0.996);
+    z-index: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -5px 9px 10px -5px rgba(70, 95, 240, 0.74);
+}
+
+.btn-cerrar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: v.$azul;
+    border: none;
+    color: v.$blanco;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes icono-img {
+    0% {
+        transform: scale(.9)
+    }
+
+    100% {
+        transform: scale(1.2)
+    }
+}
+

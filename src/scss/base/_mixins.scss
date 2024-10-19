@@ -1,0 +1,149 @@
+@use 'variables' as v;
+
+@mixin movil {
+    @media (min-width: v.$movil) {
+        @content;
+    }
+}
+
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin telefono-max {
+    @media (max-width: v.$telefono){
+        @content;
+    }
+}
+
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin tablet-max {
+    @media (max-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+
+@mixin enlace{
+    width: 50%;
+    background-color: rgba(11, 11, 11, 0.153);
+    border: 2px double rgba(128, 128, 128, 0.353);
+}
+
+
+@mixin contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+@mixin grid($columnas: 1, $gap: 5rem) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $gap;
+}
+
+@mixin resetear-lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin centrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin centrar-around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@mixin start-end {
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    flex-direction: column;
+}
+
+
+@mixin flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@mixin space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(v.$negro, 0.5);
+    display: grid;
+    place-items: center;
+    animation: fadeIn ease-in 0.5s;
+}
+
+
+@mixin border-animate {
+    --border-angle: 0turn; // For animation.
+        --main-bg: conic-gradient(from var(--border-angle),
+                #213,
+                #112 5%,
+                #112 60%,
+                #213 95%);
+
+        border: solid 2px transparent;
+        --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
+
+        background:
+            // padding-box clip this background in to the overall element except the border.
+            var(--main-bg) padding-box,
+            // border-box extends this background to the border space
+            var(--gradient-border) border-box,
+            // Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background.
+            var(--main-bg) border-box;
+
+        background-position: center center;
+
+        animation: bg-spin 3s linear infinite;
+
+        @keyframes bg-spin {
+            to {
+                --border-angle: 1turn;
+            }
+        }
+}
+
+@mixin tool-animate{
+    
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+}
