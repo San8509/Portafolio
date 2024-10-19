@@ -1,7 +1,7 @@
 {
-  "name": "festivalmusica",
+  "name": "portafolio",
   "version": "1.0.0",
-  "description": "Aprendiendo SASS y NPM",
+  "description": "Portafolio Desarrollador",
   "type": "module",
   "scripts": {
     "sass": "sass --watch src/scss:build/css",
@@ -12,7 +12,7 @@
     "NPM",
     "Gulp"
   ],
-  "author": "Juan De la torre @codigoconjuan",
+  "author": "R.Santiago",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^5.0.0",
